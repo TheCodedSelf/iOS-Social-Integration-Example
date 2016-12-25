@@ -12,6 +12,7 @@
 		954447F51E0FA4BB00EC2606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954447F31E0FA4BB00EC2606 /* Main.storyboard */; };
 		954447F71E0FA4BB00EC2606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954447F61E0FA4BB00EC2606 /* Assets.xcassets */; };
 		954447FA1E0FA4BB00EC2606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954447F81E0FA4BB00EC2606 /* LaunchScreen.storyboard */; };
+		954448031E0FB0E000EC2606 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954448021E0FB0E000EC2606 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		954447F61E0FA4BB00EC2606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		954447F91E0FA4BB00EC2606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		954447FB1E0FA4BB00EC2606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		954448021E0FB0E000EC2606 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../Downloads/FacebookSDKs-iOS-4.18.0/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954448031E0FB0E000EC2606 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				954447EE1E0FA4BB00EC2606 /* SocialIntegrationPOC */,
 				954447ED1E0FA4BB00EC2606 /* Products */,
+				954448011E0FB0E000EC2606 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +66,14 @@
 				954447FB1E0FA4BB00EC2606 /* Info.plist */,
 			);
 			path = SocialIntegrationPOC;
+			sourceTree = "<group>";
+		};
+		954448011E0FB0E000EC2606 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				954448021E0FB0E000EC2606 /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

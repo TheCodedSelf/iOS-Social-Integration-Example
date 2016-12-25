@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d36-cD-FPf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Social Integration POC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Social Integration POC" id="BYZ-38-t0r" customClass="ViewController" customModule="SocialIntegrationPOC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,119 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EGd-ey-lds">
+                                <rect key="frame" x="164" y="318" width="147" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPh-I9-7w8">
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="30"/>
+                                        <state key="normal" title="Connect to Facebook"/>
+                                        <connections>
+                                            <action selector="connectToFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pDR-qR-1RO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LH9-i6-f9E">
+                                        <rect key="frame" x="0.0" y="30" width="147" height="30"/>
+                                        <state key="normal" title="Connect to LinkedIn"/>
+                                        <connections>
+                                            <action selector="connectToLinkedIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BcU-Ws-X4K"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="y2O-Kb-8cY">
+                                <rect key="frame" x="164" y="435" width="138" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbZ-L6-m36">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="View Facebook data"/>
+                                        <connections>
+                                            <segue destination="mPI-VQ-6a0" kind="show" id="Yya-Mc-r3h"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jai-cg-G5h">
+                                        <rect key="frame" x="0.0" y="30" width="138" height="30"/>
+                                        <state key="normal" title="View LinkedIn data"/>
+                                        <connections>
+                                            <segue destination="wfI-30-2kv" kind="show" id="bOE-fp-dlz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EGd-ey-lds" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="FTf-C7-J1o"/>
+                            <constraint firstItem="EGd-ey-lds" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Was-eo-gDC"/>
+                            <constraint firstItem="y2O-Kb-8cY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YvW-Vg-LKE"/>
+                            <constraint firstItem="y2O-Kb-8cY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="arz-0A-fxW"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="RHb-Ac-qR2"/>
+                    <connections>
+                        <outlet property="connectToFacebookButton" destination="GPh-I9-7w8" id="fMo-GB-r8l"/>
+                        <outlet property="connectToLinkedInButton" destination="LH9-i6-f9E" id="oFJ-vR-CBU"/>
+                        <outlet property="viewFacebookDataButton" destination="FbZ-L6-m36" id="RRQ-ox-PXf"/>
+                        <outlet property="viewLinkedInDataButton" destination="Jai-cg-G5h" id="vsp-Gk-Xj8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
+        </scene>
+        <!--LinkedIn profile-->
+        <scene sceneID="ycF-ja-pNT">
+            <objects>
+                <viewController title="LinkedIn profile" id="wfI-30-2kv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mpk-vb-Twl"/>
+                        <viewControllerLayoutGuide type="bottom" id="L8D-AI-dY7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t4u-TQ-IPN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jWJ-j1-sOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="872"/>
+        </scene>
+        <!--Facebook profile-->
+        <scene sceneID="h0G-2h-UoK">
+            <objects>
+                <viewController title="Facebook profile" id="mPI-VQ-6a0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uCJ-aS-I34"/>
+                        <viewControllerLayoutGuide type="bottom" id="RUj-0z-spc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p9a-PT-LJo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPm-lb-2JR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="-630"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kyj-aY-Bid">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d36-cD-FPf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ISD-8Z-42G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="irq-8B-zoa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eov-ST-WA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="123"/>
         </scene>
     </scenes>
 </document>
