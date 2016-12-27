@@ -7,27 +7,42 @@
 //
 
 import UIKit
+//import FBSDKCoreKit
+import FBSDKLoginKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var connectToFacebookButton: UIButton!
-    @IBOutlet weak var connectToLinkedInButton: UIButton!
 
-    @IBOutlet weak var viewFacebookDataButton: UIButton!
-    @IBOutlet weak var viewLinkedInDataButton: UIButton!
+    @IBOutlet weak var connectionStackView: UIStackView?
     
-    let facebookConnected = false
+    @IBOutlet weak var connectToLinkedInButton: UIButton?
+
+    @IBOutlet weak var viewFacebookDataButton: UIButton?
+    @IBOutlet weak var viewLinkedInDataButton: UIButton?
+    
+    var facebookConnected: Bool {
+        get {
+            return FBSDKAccessToken.current() != nil
+        }
+    }
     let linkedInConnected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Social Integration POC"
+        
+        let loginButton = FacebookConnector.loginButton()
+        connectionStackView?.addArrangedSubview(loginButton)
+        loginButton.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        connectToFacebookButton.isHidden = facebookConnected
-        connectToLinkedInButton.isHidden = linkedInConnected
-        viewFacebookDataButton.isHidden = !facebookConnected
-        viewLinkedInDataButton.isHidden = !linkedInConnected
+        setButtonsVisibility()
+    }
+    
+    fileprivate func setButtonsVisibility() {
+        connectToLinkedInButton?.isHidden = linkedInConnected
+        viewFacebookDataButton?.isHidden = !facebookConnected
+        viewLinkedInDataButton?.isHidden = !linkedInConnected
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,3 +57,28 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: FBSDKLoginButtonDelegate {
+    
+    public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Logged out!")
+    }
+
+    public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        guard error == nil else {
+            print("Error: \(error)")
+            return
+        }
+        
+        guard result.isCancelled == false else {
+            print("FB login cancelled.")
+            return
+        }
+        
+        print("Successfully logged into facebook.")
+        
+        FBSDKAccessToken.setCurrent(result.token)
+        setButtonsVisibility()
+    }
+
+    
+}

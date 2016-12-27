@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,17 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EGd-ey-lds">
-                                <rect key="frame" x="164" y="318" width="147" height="60"/>
+                                <rect key="frame" x="164" y="318" width="138" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPh-I9-7w8">
-                                        <rect key="frame" x="0.0" y="0.0" width="147" height="30"/>
-                                        <state key="normal" title="Connect to Facebook"/>
-                                        <connections>
-                                            <action selector="connectToFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pDR-qR-1RO"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LH9-i6-f9E">
-                                        <rect key="frame" x="0.0" y="30" width="147" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="Connect to LinkedIn"/>
                                         <connections>
                                             <action selector="connectToLinkedIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BcU-Ws-X4K"/>
@@ -70,8 +64,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="RHb-Ac-qR2"/>
                     <connections>
-                        <outlet property="connectToFacebookButton" destination="GPh-I9-7w8" id="fMo-GB-r8l"/>
                         <outlet property="connectToLinkedInButton" destination="LH9-i6-f9E" id="oFJ-vR-CBU"/>
+                        <outlet property="connectionStackView" destination="EGd-ey-lds" id="q64-QI-KGZ"/>
                         <outlet property="viewFacebookDataButton" destination="FbZ-L6-m36" id="RRQ-ox-PXf"/>
                         <outlet property="viewLinkedInDataButton" destination="Jai-cg-G5h" id="vsp-Gk-Xj8"/>
                     </connections>
@@ -101,7 +95,7 @@
         <!--Facebook profile-->
         <scene sceneID="h0G-2h-UoK">
             <objects>
-                <viewController title="Facebook profile" id="mPI-VQ-6a0" sceneMemberID="viewController">
+                <viewController title="Facebook profile" id="mPI-VQ-6a0" customClass="FacebookProfileViewController" customModule="SocialIntegrationPOC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uCJ-aS-I34"/>
                         <viewControllerLayoutGuide type="bottom" id="RUj-0z-spc"/>
@@ -109,8 +103,26 @@
                     <view key="view" contentMode="scaleToFill" id="p9a-PT-LJo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f9J-GZ-8Hk">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="f9J-GZ-8Hk" firstAttribute="leading" secondItem="p9a-PT-LJo" secondAttribute="leadingMargin" id="LQJ-UJ-Cfi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f9J-GZ-8Hk" secondAttribute="trailing" id="LyZ-X0-A8g"/>
+                            <constraint firstItem="f9J-GZ-8Hk" firstAttribute="top" secondItem="uCJ-aS-I34" secondAttribute="bottom" id="uVE-Rg-Ej9"/>
+                            <constraint firstItem="RUj-0z-spc" firstAttribute="top" secondItem="f9J-GZ-8Hk" secondAttribute="bottom" id="weF-aW-grA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="f9J-GZ-8Hk" id="bVi-iD-OsJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPm-lb-2JR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
