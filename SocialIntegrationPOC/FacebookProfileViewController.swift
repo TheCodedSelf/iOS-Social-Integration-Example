@@ -18,7 +18,7 @@ class FacebookProfileViewController: ViewController {
     override func viewDidLoad() {
         self.navigationItem.title = "Facebook Profile"
         
-        FacebookConnector.startGraphRequestConnection(completionHandler: { (result, error) -> Void in
+        FacebookConnector().startGraphRequestConnection(completionHandler: { (result, error) -> Void in
             let textToDisplay = error?.localizedDescription ?? result?.description
             self.textView.text = textToDisplay
         })
