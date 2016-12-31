@@ -3,7 +3,7 @@
 //  SocialIntegrationPOC
 //
 //  Created by Keegan Rush on 2016/12/25.
-//  Copyright © 2016 Shnapped. All rights reserved.
+//  Copyright © 2016 The Coded Self. All rights reserved.
 //
 
 import UIKit
@@ -16,8 +16,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var viewFacebookDataButton: UIButton?
     @IBOutlet weak var viewLinkedInDataButton: UIButton?
-    
-    let linkedInConnected = false
     
     var facebookConnector = FacebookConnector()
     
@@ -53,11 +51,8 @@ class ViewController: UIViewController {
     }
     
     private func setButtonsVisibility() {
-        connectToLinkedInButton?.isHidden = linkedInConnected
+        connectToLinkedInButton?.isHidden = LinkedInConnector.sharedInstance.connected
         viewFacebookDataButton?.isHidden = !FacebookConnector.isConnected()
-        viewLinkedInDataButton?.isHidden = !linkedInConnected
-    }
-
-    @IBAction func connectToLinkedIn(_ sender: Any) {
+        viewLinkedInDataButton?.isHidden = !LinkedInConnector.sharedInstance.connected
     }
 }

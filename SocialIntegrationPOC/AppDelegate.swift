@@ -3,7 +3,7 @@
 //  SocialIntegrationPOC
 //
 //  Created by Keegan Rush on 2016/12/25.
-//  Copyright © 2016 Shnapped. All rights reserved.
+//  Copyright © 2016 The Coded Self. All rights reserved.
 //
 
 import UIKit

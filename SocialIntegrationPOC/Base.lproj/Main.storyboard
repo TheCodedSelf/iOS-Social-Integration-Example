@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="Connect to LinkedIn"/>
                                         <connections>
-                                            <action selector="connectToLinkedIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BcU-Ws-X4K"/>
+                                            <segue destination="7QQ-pr-HGK" kind="show" id="5LK-zA-gQm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -74,10 +74,28 @@
             </objects>
             <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
         </scene>
+        <!--Connect To Linked In View Controller-->
+        <scene sceneID="Zqd-Er-ntI">
+            <objects>
+                <viewController id="7QQ-pr-HGK" customClass="ConnectToLinkedInViewController" customModule="SocialIntegrationPOC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RSZ-4Z-vuh"/>
+                        <viewControllerLayoutGuide type="bottom" id="4SF-fT-ZvX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cPR-Wa-hJW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xey-cq-PRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2042" y="122"/>
+        </scene>
         <!--LinkedIn profile-->
         <scene sceneID="ycF-ja-pNT">
             <objects>
-                <viewController title="LinkedIn profile" id="wfI-30-2kv" sceneMemberID="viewController">
+                <viewController title="LinkedIn profile" id="wfI-30-2kv" customClass="LinkedInProfileViewController" customModule="SocialIntegrationPOC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mpk-vb-Twl"/>
                         <viewControllerLayoutGuide type="bottom" id="L8D-AI-dY7"/>
@@ -85,8 +103,34 @@
                     <view key="view" contentMode="scaleToFill" id="t4u-TQ-IPN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pE1-gK-1Ua">
+                                <rect key="frame" x="142.5" y="114" width="90" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile URL:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ga-JZ-baM">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inF-6D-atO">
+                                        <rect key="frame" x="0.0" y="20.5" width="90" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pE1-gK-1Ua" firstAttribute="top" secondItem="Mpk-vb-Twl" secondAttribute="bottom" constant="50" id="1ZW-ej-IQ2"/>
+                            <constraint firstItem="pE1-gK-1Ua" firstAttribute="centerX" secondItem="t4u-TQ-IPN" secondAttribute="centerX" id="CoO-9E-RJx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="profileUrlLabel" destination="inF-6D-atO" id="vUj-MC-oyI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWJ-j1-sOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
