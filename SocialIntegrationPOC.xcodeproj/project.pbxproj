@@ -18,6 +18,7 @@
 		959DEF3C1E160DA400FF8DEE /* LinkedInConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DEF3B1E160DA400FF8DEE /* LinkedInConnector.swift */; };
 		959DEF3E1E1665AE00FF8DEE /* ConnectToLinkedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DEF3D1E1665AE00FF8DEE /* ConnectToLinkedInViewController.swift */; };
 		959DEF401E179C1900FF8DEE /* LinkedInProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DEF3F1E179C1900FF8DEE /* LinkedInProfileViewController.swift */; };
+		959DEF421E19336D00FF8DEE /* LinkedInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DEF411E19336D00FF8DEE /* LinkedInUser.swift */; };
 		9EC8ED519320F33F4D896226 /* Pods_SocialIntegrationPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C614974FED8583E2C027A0E /* Pods_SocialIntegrationPOC.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		959DEF3B1E160DA400FF8DEE /* LinkedInConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInConnector.swift; sourceTree = "<group>"; };
 		959DEF3D1E1665AE00FF8DEE /* ConnectToLinkedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectToLinkedInViewController.swift; sourceTree = "<group>"; };
 		959DEF3F1E179C1900FF8DEE /* LinkedInProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInProfileViewController.swift; sourceTree = "<group>"; };
+		959DEF411E19336D00FF8DEE /* LinkedInUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedInUser.swift; sourceTree = "<group>"; };
 		DBEC1FDCA2CCB0E74EBE7701 /* Pods-SocialIntegrationPOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialIntegrationPOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialIntegrationPOC/Pods-SocialIntegrationPOC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				959DEF3B1E160DA400FF8DEE /* LinkedInConnector.swift */,
 				959DEF3D1E1665AE00FF8DEE /* ConnectToLinkedInViewController.swift */,
 				959DEF3F1E179C1900FF8DEE /* LinkedInProfileViewController.swift */,
+				959DEF411E19336D00FF8DEE /* LinkedInUser.swift */,
 			);
 			path = SocialIntegrationPOC;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			files = (
 				954447F21E0FA4BB00EC2606 /* ViewController.swift in Sources */,
 				9503EA1C1E1041050028EE9F /* FacebookProfileViewController.swift in Sources */,
+				959DEF421E19336D00FF8DEE /* LinkedInUser.swift in Sources */,
 				954447F01E0FA4BB00EC2606 /* AppDelegate.swift in Sources */,
 				959DEF3E1E1665AE00FF8DEE /* ConnectToLinkedInViewController.swift in Sources */,
 				959DEF3C1E160DA400FF8DEE /* LinkedInConnector.swift in Sources */,

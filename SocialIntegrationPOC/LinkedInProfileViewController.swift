@@ -9,14 +9,25 @@
 import UIKit
 
 class LinkedInProfileViewController: UIViewController {
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var headlineLabel: UILabel!
     @IBOutlet weak var profileUrlLabel: UILabel!
     
     override func viewDidLoad() {
-        LinkedInConnector.sharedInstance.getProfileUrlString { (profileUrl) in
-            DispatchQueue.main.async { [weak self] in
-                self?.profileUrlLabel.text = profileUrl
+        LinkedInConnector.sharedInstance.getUserData() { (user) in
+            if let user = user {
+                DispatchQueue.main.async { [weak self] in
+                    self?.populateFields(with: user)
+                }
             }
         }
     }
     
+    private func populateFields(with user: LinkedInUser) {
+        firstNameLabel.text = user.firstName
+        lastNameLabel.text = user.lastName
+        headlineLabel.text = user.headline
+        profileUrlLabel.text = user.profileUrl
+    }
 }

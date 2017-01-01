@@ -18,18 +18,18 @@ struct LinkedInConnector {
     private static let apiUrl = "https://www.linkedin.com/uas/oauth2/"
     private static let redirectUrl = "https://com.thecodedself.SocialIntegrationPOC/oauth".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
 
-    private var accessToken: String? {
+    private var accessToken: String {
         set(newToken) {
             UserDefaults.standard.setValue(newToken, forKey: LinkedInConnector.userDefaultsAccessTokenKey)
         }
         get {
-            return UserDefaults.standard.value(forKey: LinkedInConnector.userDefaultsAccessTokenKey) as? String
+            return UserDefaults.standard.value(forKey: LinkedInConnector.userDefaultsAccessTokenKey) as? String ?? ""
         }
         
     }
     
     var connected: Bool {
-        return accessToken != nil
+        return accessToken.characters.count > 0
     }
     
     func authCodeRequest() -> URLRequest {
@@ -47,11 +47,13 @@ struct LinkedInConnector {
         return URLRequest(url: URL(string: authorizationUrl)!)
     }
     
-    func getProfileUrlString(completion: @escaping (String?) -> ()) {
+    func getUserData(completion: @escaping (LinkedInUser?) -> ()) {
         
-        let targetURLString = "https://api.linkedin.com/v1/people/~:(public-profile-url)?format=json"
+        let targetURLString = "https://api.linkedin.com/v1/people/~?format=json"
+
         var request = URLRequest(url: URL(string: targetURLString)!)
         request.httpMethod = "GET"
+        
         request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
 
         let session = URLSession(configuration: URLSessionConfiguration.default)
@@ -65,8 +67,16 @@ struct LinkedInConnector {
             }
             
             let dataDictionary = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any]
-            let profileURLString = dataDictionary??["publicProfileUrl"] as? String
-            completion(profileURLString)
+            if let dataDictionary = dataDictionary,
+                let firstName = dataDictionary?["firstName"] as? String,
+                let lastName = dataDictionary?["lastName"] as? String,
+                let headline = dataDictionary?["headline"] as? String,
+                let profileURLString = (dataDictionary?["siteStandardProfileRequest"] as? [String:String])?["url"] {
+                    let user = LinkedInUser(firstName: firstName, lastName: lastName, headline: headline, profileUrl: profileURLString)
+                    completion(user)
+                } else {
+                    completion(nil)
+                }
             }
             
         task.resume()
